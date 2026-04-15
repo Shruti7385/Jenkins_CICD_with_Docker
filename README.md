@@ -1,7 +1,8 @@
-# Monitoring Stack Application Deployment (AWS EC2 + Docker Compose)
+# Jenkins CI/CD Pipeline with Docker (AWS EC2 + Docker Compose)
 
-This project provisions an **Amazon Linux EC2 instance using Terraform** and automatically deploys a **full monitoring-enabled application stack** using Docker Compose.
+# 📌 Project Overview
 
+This project demonstrates an end-to-end CI/CD pipeline using Jenkins and Docker. It automates the process of building, testing, and deploying applications in a containerized environment.
 It includes:
 
 * ReactJS Frontend
@@ -10,7 +11,7 @@ It includes:
 
 ---
 
-# Technologies Used
+# 🛠️ Technologies Used
 
 | Layer             | Technology                                |
 | ----------------- | ----------------------------------------- |
@@ -23,10 +24,34 @@ It includes:
 | Version Control   | GitHub                                    |
 
 ---
+# ⚙️ Features
+* Automated build process using Jenkins
+* Continuous Integration with GitHub
+* Docker-based containerized deployment
+* Pipeline as Code using Jenkinsfile
+* Easy and scalable deployment process
+```
 
-# Architecture Diagram
+# 📂 Project Structure
+
+Jenkins_CICD_with_Docker/
+│── Jenkinsfile
+│── Dockerfile
+│── application/
+│── README.md
 
 ```
+# 🔄 CI/CD Workflow 
+* Developer pushes code to GitHub repository
+* Jenkins detects changes using webhook/polling
+* Jenkins pipeline triggers automatically
+* Application is built and tested
+* Docker image is created
+* Container is deployed
+```
+# Architecture Diagram
+
+
                      ┌────────────────────────────┐
                      │        User Browser        │
                      │ http://<EC2-IP>:3000      │
@@ -50,7 +75,6 @@ It includes:
 │ React App  │  │ Spring Boot  │  │ Jaeger UI  │  │ Prometheus   │
 │ Port:3000  │  │ Port:7093    │  │ Port:16686 │  │ Port:9090    │
 └────────────┘  └──────────────┘  └────────────┘  └──────────────┘
-```
 
 ---
 
@@ -67,31 +91,22 @@ Terraform automatically:
 
 ---
 
-# How to Run
+# ▶️ How to Run
 
-## Step 1: Initialize Terraform
-
-```bash
-git clone https://github.com/lavatech321/Monitoring_Stack_App.git
-cd Monitoring_Stack_App
-terraform init
-```
-
----
-
-## Step 2: Apply Configuration
-
-```bash
+## Step 1: git Clone
+https://github.com/Shruti7385/Jenkins_CICD_with_Docker.git
+## Step 2: terraform init
+## Step 3: Apply Configuration
 terraform apply --auto-approve
-```
 
+```
 ---
 
 # Terraform Outputs
 
 ```hcl
 output "EC2-Instance-access-details" {
-	value = "ssh -i ~/.ssh/id_rsa ec2-user@${aws_instance.servers.public_ip} \n"
+	value = "ssh -i C:/Users/Sushant/.ssh/id_ed25519 ec2-user@${aws_instance.servers.public_ip} \n"
 }
 
 output "SpringBoot-Application-Backend" {
@@ -127,7 +142,7 @@ output "Prometheus-Monitoring" {
 # SSH Access
 
 ```bash
-ssh -i ~/.ssh/id_rsa ec2-user@<EC2_PUBLIC_IP>
+ssh -i C:/Users/Sushant/.ssh/id_ed25519 ec2-user@<EC2_PUBLIC_IP>
 ```
 
 ---
@@ -142,13 +157,8 @@ ssh -i ~/.ssh/id_rsa ec2-user@<EC2_PUBLIC_IP>
 
 ---
 
-# Conclusion
-
-This project demonstrates a **complete DevOps workflow**:
-
-```
-Terraform → EC2 → Docker → Docker Compose → Full Stack + Monitoring
-```
+# 👩‍💻 Author 
+Shrutika Vhanwade
 
 ---
 
