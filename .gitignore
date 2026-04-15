@@ -1,0 +1,3 @@
+echo terraform.tfvars >> .gitignore
+echo *.tfvars >> .gitignore
+echo .env >> .gitignore
